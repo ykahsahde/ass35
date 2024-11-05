@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: fit-content;
+            margin: 10px auto;
+            position: relative;
+
+        }
+        .slideshow{
+            width: 800px;
+            height: 500px;
+            border-radius: 20px;
+            object-fit: cover;
+          
+        }
+        .same{
+            height: 80px;
+            position: absolute;
+        }
+        .pre{
+            left: 0;   
+            top: 200px;
+        }
+        .next{
+            right: 0;
+            top: 200px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="amazing-bengal-tiger-nature.jpg" id="slide" class="slideshow" alt="">
+        <img src="left.png" class="pre same" onclick="pre()" alt="">
+        <img src="right.png" class="next same" onclick="next()" alt="">
+
+    </div>
+    <script>
+        const slideshow =[
+            "amazing-bengal-tiger-nature.jpg",
+            "animal-lizard-nature-multi-colored-close-up-generative-ai.jpg",
+            "macau-parrot.jpg",
+            "portrait-beuatiful-thai-asian-elephant-stands-green-field-elephant-with-trimmed-cutted-tusks.jpg",
+            "redeyed-tree-frog-closeup-agalychnis-callidryas-red-eyes-closeup.jpg"
+        ]
+
+        const slide = document.getElementById("slide");
+        let index=0;
+        function next(){
+            
+            if(index<slideshow.length-1){
+                index++;
+            }
+            else{
+                index=0;
+            }
+           slide.src=slideshow[index];
+        }
+        function pre(){
+            
+            if(index>0){
+                index--;
+            }
+            else{
+                index=slideshow.length-1;
+            }
+           slide.src=slideshow[index];
+        }
+        setInterval(next,2000)
+    </script>
+</body>
+</html>
